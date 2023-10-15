@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -9,9 +11,19 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  // void initState() {
+  //   super.initState();
+  //   Timer(
+  //       Duration(
+  //         seconds: 3,
+  //       ),
+  //       () =>);
+  // }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -19,8 +31,14 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             SizedBox(
               height: 300.0,
-              child: Image.network('assets/05LfIOxtkYAZ4BIOXwOnZJs-24.webp'),
-            )
+              child: Image.asset('assets/05LfIOxtkYAZ4BIOXwOnZJs-24.webp'),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 100),
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.black,
+              ),
+            ),
           ],
         ),
       ),
