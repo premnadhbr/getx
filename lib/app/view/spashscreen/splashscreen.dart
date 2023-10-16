@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:getx_practice/app/view/Landingpage/landingpage.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,16 +13,21 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  // void initState() {
-  //   super.initState();
-  //   Timer(
-  //       Duration(
-  //         seconds: 3,
-  //       ),
-  //       () =>);
-  // }
+  void initState() {
+    super.initState();
+    Timer(
+        const Duration(
+          seconds: 3,
+        ),
+        () => Navigator.pushReplacement(
+              context,
+              PageTransition(
+                  child: const LandingPage(),
+                  type: PageTransitionType.leftToRightWithFade),
+            ));
+  }
 
-  @override
+@override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -33,8 +40,8 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 300.0,
               child: Image.asset('assets/05LfIOxtkYAZ4BIOXwOnZJs-24.webp'),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 100),
+            const Padding(
+              padding: EdgeInsets.only(top: 100),
               child: CircularProgressIndicator(
                 backgroundColor: Colors.black,
               ),
